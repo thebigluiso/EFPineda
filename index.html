@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Fernandez Pineda | Consultor y Docente Sociosanitario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #4f46e5;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark);
+            color: #f8fafc;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            z-index: -1;
+            filter: blur(40px);
+        }
+
+        .reveal {
+            opacity: 1; 
+            transform: translateY(20px);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+        }
+
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+            background: #1e293b;
+        }
+
+        .brand-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        section {
+            position: relative;
+            z-index: 10;
+            min-height: 200px; 
+        }
+
+        .milestone-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--secondary);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .check-list i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .video-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 px-6 py-6">
+        <div class="max-w-6xl mx-auto glass rounded-2xl flex justify-between items-center px-8 py-3 shadow-2xl">
+            <a href="#inicio" class="brand-logo-container group">
+                <div class="brand-avatar group-hover:scale-110 transition-transform duration-300">
+                    <img src="foto_pi.png" alt="Eduardo Fernandez" onerror="this.src='https://ui-avatars.com/api/?name=E+F&background=06b6d4&color=fff'">
+                </div>
+                <div class="text-xl font-bold tracking-tight hidden sm:block">
+                    <span class="text-white">EF</span><span class="gradient-text">PINEDA</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-widest">
+                <a href="#inicio" class="nav-link text-gray-300 hover:text-white">Inicio</a>
+                <a href="#sobre-mi" class="nav-link text-gray-300 hover:text-white">Trayectoria</a>
+                <a href="#servicios" class="nav-link text-gray-300 hover:text-white">Trabajemos Juntos</a>
+                <a href="#media" class="nav-link text-gray-300 hover:text-white">Media</a>
+                <a href="#contacto" class="nav-link text-gray-300 hover:text-white">Contacto</a>
+            </div>
+
+            <a href="mailto:efpineda2@gmail.com" class="gradient-bg px-6 py-2 rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-indigo-500/30 transition text-center">
+                CONECTAR
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+        <div class="hero-blob top-0 -left-20"></div>
+        <div class="hero-blob bottom-0 -right-20"></div>
+        
+        <div class="max-w-5xl text-center z-10">
+            <div class="mb-8 relative inline-block reveal active">
+                <div class="w-44 h-44 md:w-52 md:h-52 rounded-full border-4 border-white/10 mx-auto overflow-hidden shadow-2xl bg-slate-800">
+                    <img src="foto_pi.png" alt="Eduardo Fernandez Pineda" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Eduardo+Pineda&size=200&background=4f46e5&color=fff'">
+                </div>
+                <div class="absolute bottom-2 right-6 bg-green-500 w-6 h-6 rounded-full border-4 border-slate-900 shadow-lg"></div>
+            </div>
+            
+            <div class="reveal active">
+                <h1 class="text-4xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">
+                    Eduardo <span class="gradient-text">Fernandez Pineda</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                    Docente, Consultor y Director de Servicios Sociosanitarios con más de <span class="text-white font-semibold">23 años</span> de impacto en el sector.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#servicios" class="gradient-bg px-10 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-xl shadow-indigo-600/20">
+                        Mis Servicios
+                    </a>
+                    <a href="#sobre-mi" class="glass px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition">
+                        Ver Trayectoria
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trayectoria / Sobre Mi -->
+    <section id="sobre-mi" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div class="reveal active">
+                    <h2 class="text-4xl font-bold mb-8 italic">Trayectoria <span class="gradient-text">Profesional</span></h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Desde 1993 he formado parte de servicios sociales & sanitarios de atención a personas en Emergencias, Teleasistencia y Ayuda a domicilio. Aportando un grano de arena en el cuidado de los demás.
+                    </p>
+					<p class="text-gray-400 text-lg leading-relaxed mb-6">
+						Llevo más de veintitrés años en el mundo de los cuidados, la atención a personas mayores y dependientes. Con experiencia tanto en la atención directa como en la dirección de servicios. 
+                    </p>
+					<p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Esta experiencia en el terreno me ha permitido conocer de primera mano la realidad del sector, las necesidades de las personas usuarias y de los profesionales que las atienden. 
+                    </p>
+					<p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        En paralelo me he desarrollado como docente en el área sanitaria y social, de distintos colectivos profesionales, así como impartiendo formación en el área de Prevención de Riesgos Laborales. Creo que la formación es una potente herramienta de transformación.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-white">
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            <span>Dirección de Centros y Servicios</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-white">
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            <span>Formación de Equipos de Alto Rendimiento</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hitos Clave -->
+                <div class="glass p-8 rounded-3xl reveal active" style="transition-delay: 200ms;">
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <i class="fas fa-star text-secondary"></i> Hitos Clave
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <div class="milestone-icon"><i class="fas fa-handshake"></i></div>
+                            <div class="border-l-2 border-indigo-500 pl-4">
+                                <h4 class="font-bold">Consultoría Estratégica</h4>
+                                <p class="text-sm text-gray-400 mt-1">Optimización de procesos operativos en residencias y centros de día.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="milestone-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <div class="border-l-2 border-cyan-500 pl-4">
+                                <h4 class="font-bold">Docencia Especializada</h4>
+                                <p class="text-sm text-gray-400 mt-1">Más de 20 años formando a futuros profesionales. (+1.000 alumnos)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="milestone-icon"><i class="fas fa-briefcase-medical"></i></div>
+                            <div class="border-l-2 border-indigo-500 pl-4">
+                                <h4 class="font-bold">Experiencia en el Sector</h4>
+                                <p class="text-sm text-gray-400 mt-1">Más de 23 años de trayectoria y 50.000 personas atendidas.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="milestone-icon"><i class="fas fa-balance-scale"></i></div>
+                            <div class="border-l-2 border-cyan-500 pl-4">
+                                <h4 class="font-bold">Ética y Compromiso Social</h4>
+                                <p class="text-sm text-gray-400 mt-1">+5 años en Comité de Ética Social y 20 años de voluntariado en Cruz Roja.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios / Trabajemos Juntos -->
+    <section id="servicios" class="py-24 px-6 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal active">
+                <h2 class="text-4xl font-bold mb-4">Trabajemos Juntos</h2>
+                <div class="h-1 w-20 gradient-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Bloque 1: Formación Sociosanitaria & PRL -->
+                <div class="glass p-8 rounded-3xl card-hover reveal active border-t-4 border-indigo-500">
+                    <i class="fas fa-user-graduate text-4xl text-indigo-400 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Formación Sociosanitaria & PRL</h3>
+                    <ul class="text-gray-400 text-sm space-y-3 check-list">
+                        <li><i class="fas fa-check"></i> Acciones formativas a medida y adaptadas</li>
+                        <li><i class="fas fa-check"></i> Impartición de Certificados de Profesionalidad</li>
+                        <li><i class="fas fa-check"></i> Metodología práctica y vivencial</li>
+                        <li><i class="fas fa-check"></i> Modalidad presencial & online</li>
+                        <li><i class="fas fa-check"></i> Orientada a resultados</li>
+                    </ul>
+                </div>
+
+                <!-- Bloque 2: Consultoría Estratégica -->
+                <div class="glass p-8 rounded-3xl card-hover reveal active border-t-4 border-cyan-500" style="transition-delay: 100ms;">
+                    <i class="fas fa-lightbulb text-4xl text-cyan-400 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Consultoría Estratégica</h3>
+                    <ul class="text-gray-400 text-sm space-y-3 check-list">
+                        <li><i class="fas fa-check"></i> Optimización de Gestión & Procesos</li>
+                        <li><i class="fas fa-check"></i> Nuevas Tecnologías de atención</li>
+                        <li><i class="fas fa-check"></i> Plan estratégico para servicios privados</li>
+                        <li><i class="fas fa-check"></i> Proyectos de Investigación sociosanitarios</li>
+                        <li><i class="fas fa-check"></i> Desarrollo y Alto Rendimiento de Equipos</li>
+                        <li><i class="fas fa-check"></i> Licitaciones y Proyectos Técnicos</li>
+                    </ul>
+                </div>
+
+                <!-- Bloque 3: Dirección y Liderazgo -->
+                <div class="glass p-8 rounded-3xl card-hover reveal active border-t-4 border-indigo-500" style="transition-delay: 200ms;">
+                    <i class="fas fa-users-cog text-4xl text-indigo-400 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Dirección y Liderazgo</h3>
+                    <p class="text-gray-400 text-sm mb-4">Gestión integral de centros y servicios sociales con enfoque en la eficiencia operativa.</p>
+                    <ul class="text-gray-400 text-sm space-y-3 check-list">
+                        <li><i class="fas fa-check"></i> Gestión por Competencias</li>
+                        <li><i class="fas fa-check"></i> Análisis de KPIs y OKRs</li>
+                        <li><i class="fas fa-check"></i> Coordinación multidisciplinar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nueva Sección: Media & Conferencias -->
+    <section id="media" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal active">
+                <h2 class="text-4xl font-bold mb-4">Media & Conferencias</h2>
+                <div class="h-1 w-20 gradient-bg mx-auto rounded-full"></div>
+                <p class="text-gray-400 mt-6 max-w-2xl mx-auto">Entrevistas, ponencias y contenido especializado sobre innovación en el sector sociosanitario.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Video 1 -->
+                <div class="glass p-6 rounded-3xl video-card card-hover reveal active">
+                    <div>
+                        <i class="fas fa-microphone-alt text-secondary text-2xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-3 leading-snug">Entrevista: Teleasistencia avanzada y el futuro del cuidado personalizado</h3>
+                        <p class="text-gray-400 text-sm mb-6">Instituto de la Dependencia. Análisis profundo sobre la evolución de los servicios de cuidado.</p>
+                    </div>
+                    <a href="https://institutodependencia.edu.es/eduardo-fernandez-pineda-teleasistencia-avanzada/" target="_blank" class="text-secondary font-bold text-sm flex items-center gap-2 hover:underline">
+                        VER ENTREVISTA <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="glass p-6 rounded-3xl video-card card-hover reveal active" style="transition-delay: 100ms;">
+                    <div>
+                        <i class="fas fa-award text-secondary text-2xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-3 leading-snug">SICOR Teleasistencia: Primer Accésit Premios SUPERCUIDADORES 2023</h3>
+                        <p class="text-gray-400 text-sm mb-6">Reconocimiento a la labor de SICOR Teleasistencia El Corte Inglés.</p>
+                    </div>
+                    <a href="https://cuidadores.unir.net/informacion/actualidad/entrevistas-y-reportajes/4637-sicor-teleasistencia-el-corte-ingles-primer-accesit-en-los-premios-supercuidadores-2023" target="_blank" class="text-secondary font-bold text-sm flex items-center gap-2 hover:underline">
+                        VER VIDEO <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="glass p-6 rounded-3xl video-card card-hover reveal active" style="transition-delay: 200ms;">
+                    <div>
+                        <i class="fas fa-brain text-secondary text-2xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-3 leading-snug">Teleasistencia e Inteligencia Artificial: Innovación en cuidados</h3>
+                        <p class="text-gray-400 text-sm mb-6">Explorando cómo la IA está transformando la atención domiciliaria.</p>
+                    </div>
+                    <a href="https://www.facebook.com/share/v/17WSybdk9g/" target="_blank" class="text-secondary font-bold text-sm flex items-center gap-2 hover:underline">
+                        VER CONTENIDO <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="glass p-6 rounded-3xl video-card card-hover reveal active">
+                    <div>
+                        <i class="fas fa-map-marked-alt text-secondary text-2xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-3 leading-snug">Teleasistencia avanzada 360º en la III Feria Senior de Madrid</h3>
+                        <p class="text-gray-400 text-sm mb-6">Presentación de soluciones integrales con SICOR Teleasistencia El Corte Inglés.</p>
+                    </div>
+                    <a href="https://sicorteleasistencia.com/descubre-la-teleasistencia-avanzada-360o-con-sicor-teleasistencia-el-corte-ingles-en-la-iii-feria-senior-de-madrid/" target="_blank" class="text-secondary font-bold text-sm flex items-center gap-2 hover:underline">
+                        VER MÁS <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="glass p-6 rounded-3xl video-card card-hover reveal active" style="transition-delay: 100ms;">
+                    <div>
+                        <i class="fas fa-rocket text-secondary text-2xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-3 leading-snug">Teleasistencia en España: Innovación y Desafíos</h3>
+                        <p class="text-gray-400 text-sm mb-6">Visión estratégica sobre el panorama actual y futuro de la teleasistencia española.</p>
+                    </div>
+                    <a href="https://balancesociosanitario.com/dependencia/teleasistencia-en-espana-innovacion-y-desafios-en-el-cuidado-sociosanitario/" target="_blank" class="text-secondary font-bold text-sm flex items-center gap-2 hover:underline">
+                        VER VIDEO <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="glass p-6 rounded-3xl video-card card-hover reveal active" style="transition-delay: 200ms;">
+                    <div>
+                        <i class="fas fa-heartbeat text-secondary text-2xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-3 leading-snug">Tecnología y salud empoderando a las personas</h3>
+                        <p class="text-gray-400 text-sm mb-6">Participación en ERST 16 04 02 sobre el impacto humano de la tecnología.</p>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=23MI-oNOrvA" target="_blank" class="text-secondary font-bold text-sm flex items-center gap-2 hover:underline">
+                        VER PONENCIA <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Video 7 (LinkedIn Ref) -->
+                <div class="glass p-6 rounded-3xl video-card card-hover reveal active col-md-2">
+                    <div>
+                        <i class="fas fa-globe-americas text-secondary text-2xl mb-4"></i>
+                        <h3 class="font-bold text-lg mb-3 leading-snug">Entrevista Programa Adulto Mayor Perú</h3>
+                        <p class="text-gray-400 text-sm mb-6">Colaboración internacional compartiendo buenas prácticas para la tercera edad.</p>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=cAwEXOzjac4" target="_blank" class="text-secondary font-bold text-sm flex items-center gap-2 hover:underline">
+                        VER RECURSO <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto glass rounded-[3rem] p-12 text-center reveal active">
+            <h2 class="text-4xl font-bold mb-6">Hablemos</h2>
+            <p class="text-gray-400 text-xl mb-10">¿Tienes un proyecto en mente o necesitas asesoramiento especializado?</p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <a href="mailto:efpineda2@gmail.com" class="flex items-center gap-3 text-xl hover:text-secondary transition">
+                    <i class="fas fa-envelope text-2xl text-indigo-400"></i>
+                    <span>efpineda2@gmail.com</span>
+                </a>
+                <a href="https://linkedin.com/in/eduardo-fernandez-pineda" target="_blank" class="flex items-center gap-3 text-xl hover:text-secondary transition">
+                    <i class="fab fa-linkedin text-2xl text-cyan-400"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center">
+            <div class="text-gray-500 text-sm">
+                <a href="https://seergiocorp.site" class="flex items-center gap-3 text-xl hover:text-secondary transition"> © <span id="year"></span> Sergio Solana Varela.
+            </div>
+            <div class="flex gap-6 text-xs text-gray-500 uppercase font-bold">
+                <a href="https://www.linkedin.com/in/sergio-solana-varela-996957318" target="_blank" class="hover:text-white transition">LinkedIn</a>
+                <a href="mailto:seergiocorp.dev@gmail.com" class="hover:text-white transition">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const revealOnScroll = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
